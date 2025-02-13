@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        alert("I have a red car");
+        alert("I have a blue car");
+        alert("I have a yellow car");
+        alert("I have a green car");
+    </script>
+    <script>
+        // Pet Guessing Game!
+        let correctNumber = 4;
+        let numberGuess = prompt("Guess how many cars I have:");
+        if (numberGuess == correctNumber) {
+	        alert("You guessed correctly!");
+        }
+        else if (numberGuess < correctNumber) {
+            alert("You guessed too low!");
+            numberGuess = prompt("Guess how many cars I have:");
+        }
+        else {
+            alert("You guessed too high!");
+            numberGuess = prompt("Guess how many cars I have:");
+        }
+        if (numberGuess == correctNumber) {
+            alert("You guessed correctly!");
+        }
+        else if (numberGuess < correctNumber) {
+            alert("You guessed too low!");
+            numberGuess = prompt("Guess how many cars I have:");
+        }
+        else {
+            alert("You guessed too high!");
+            numberGuess = prompt("Guess how many cars I have:");
+        }
+        if (numberGuess == correctNumber) {
+            alert("You guessed correctly!");
+        }
+        else if (numberGuess < correctNumber) {
+            alert("You guessed too low! You lose!");
+        }
+        else {
+            alert("That was incorrect! You lose!");
+        }
+    </script>   
+
+</head>
+<body>
+    
+</body>
+</html>
