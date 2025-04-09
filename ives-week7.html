@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Preferences Survey</title>
+    <style type="text/css">
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        button {
+            background: lightgrey;
+            border-radius: 5px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 14pt;
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="petForm" action="" method="get">
+        <div>
+            <label for="favoritePet">What is your favorite pet?</label><br>
+            <input type="text" id="favoritePet" name="favoritePet">
+        </div>
+        <br> 
+        <div class="petField">
+            <label for="why">Why do you like this pet?</label><br>
+            <textarea name="why" id="why">Explain here...</textarea>
+        </div>
+        <br>
+        <div class="petField">
+            <label>Do you currently own a pet?</label><br>
+            <input type="radio" id="yes" name="hasPet" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="hasPet" value="no">
+            <label for="no">No</label><br>
+        </div>
+        <br>
+        <div class="petField">
+            <label for="preferredType">What type of pet do you prefer?</label><br>
+            <select name="preferredType" id="preferredType">
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="fish">Fish</option>
+                <option value="reptile">Reptile</option>
+                <option value="rodent">Rodent</option>
+                <option value="exotic">Exotic</option>
+                <option value="none">None</option>
+            </select>
+        </div>
+        <br>
+        <div class="petField">
+            <label for="petCount">How many pets do you currently have?</label><br>
+            <input type="number" id="petCount" name="petCount">
+        </div>
+        <br>
+        <div class="petField">
+            What activities do you enjoy with your pet(s)?<br>
+            <input type="checkbox" id="activity1" name="activities" value="Walks">
+            <label for="activity1">Going for walks</label><br>
+            <input type="checkbox" id="activity2" name="activities" value="Cuddling">
+            <label for="activity2">Cuddling</label><br>
+            <input type="checkbox" id="activity3" name="activities" value="Training">
+            <label for="activity3">Training</label><br>
+            <input type="checkbox" id="activity4" name="activities" value="Grooming">
+            <label for="activity4">Grooming</label><br>
+            <input type="checkbox" id="activity5" name="activities" value="Playing games">
+            <label for="activity5">Playing games</label><br>
+            <input type="checkbox" id="activity6" name="activities" value="Watching TV together">
+            <label for="activity6">Watching TV together</label><br>
+            <input type="checkbox" id="activity7" name="activities" value="Vet visits">
+            <label for="activity7">Going to the vet</label><br>
+            <input type="checkbox" id="activity8" name="activities" value="Pet photography">
+            <label for="activity8">Taking pet photos</label><br>
+        </div>
+        <br>
+        <div class="petField">
+            <label for="todayDate">What is today's date?</label><br>
+            <input type="date" id="todayDate" name="todayDate">
+        </div>
+        <br>
+        <button type="submit" value="submit" id="submitButton">Submit</button>
+    </form>
+
+    <div id="formResults"></div>
+
+    <script>
+        const queryString = window.location.search;
+
+        if (queryString !== "") {
+            const urlParams = new URLSearchParams(queryString);
+            
+            const favoritePet = urlParams.get('favoritePet') || "Not provided";
+            const why = urlParams.get('why') || "Not provided";
+            const hasPet = urlParams.get('hasPet') || "Not provided";
+            const preferredType = urlParams.get('preferredType') || "Not provided";
+            const petCount = urlParams.get('petCount') || "Not provided";
+            const todayDate = urlParams.get('todayDate') || "Not provided";
+
+            const activities = urlParams.getAll('activities').join(", ") || "None selected";
+
+            document.getElementById("formResults").innerHTML = `
+                <p><strong>Form Results:</strong></p>
+                <p>Favorite Pet: ${favoritePet}</p>
+                <p>Why: ${why}</p>
+                <p>Currently Own a Pet: ${hasPet}</p>
+                <p>Preferred Pet Type: ${preferredType}</p>
+                <p>Number of Pets: ${petCount}</p>
+                <p>Favorite Activities with Pet(s): ${activities}</p>
+                <p>Today's Date: ${todayDate}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
