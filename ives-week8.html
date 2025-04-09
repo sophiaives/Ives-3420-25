@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camping Checklist</title>
+</head>
+<body>
+    <h1>Camping Supplies</h1>
+    <div id="camping">
+
+        <script>
+
+            let items = [
+                "Tent",
+                "Sleeping Bag",
+                "Lantern",
+                "Canned Soup",
+                "Marshmallows",
+                "Firewood",
+                "Granola Bars",
+                "Trail Mix"
+            ];
+
+            let values = [ 5, 5, 0, 10, -5 ];
+
+            let userNum = 2;
+
+            alert(values[userNum]);
+
+            items.shift(); 
+            items.push("Bug Spray"); 
+            items.sort(); 
+            items.splice(2, 1); 
+
+            document.getElementById("camping").innerHTML = "Camping Supplies:<br><br>";
+
+            for (let i = 0; i < items.length; i++) {
+                document.getElementById("camping").innerHTML += items[i] + "<br>";
+            }
+
+        </script>
+    </div>
+
+    <h2>Outdoor Gear</h2>
+    <div id="outdoor">
+
+        <script>
+
+            let gear = [
+                "Compass",
+                "Map",
+            ];
+
+            gear.splice(0, 1);
+
+            document.getElementById("outdoor").innerHTML = "Outdoor Gear:<br><br>";
+
+            for (let i = 0; i < gear.length; i++) {
+                document.getElementById("outdoor").innerHTML += gear[i] + "<br>";
+            }
+
+        </script>
+    </div>
+</body>
+</html>
